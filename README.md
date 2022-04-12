@@ -1,6 +1,6 @@
-# Deploing XGBoost to Triton Inference Server
-
 ![](logos.png)
+
+# Deploing XGBoost to Triton Inference Server
 
 ### Overview
 
