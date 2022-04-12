@@ -66,5 +66,5 @@ exit
 
 Access Jupyter Lab at `http://<server-ip>:8888/lab?`. Using a terminal in Jupyter Lab, clone this repository: `git clone https://github.com/nwstephens/triton-xgboost.git`. Then open the scripts for XGBoost and Triton.
 
-* 4-build-an-xgboost-model.ipynb
-* 5-deploy-to-triton.ipynb
+* [4-build-an-xgboost-model.ipynb](4-build-an-xgboost-model.ipynb)
+* [5-deploy-to-triton.ipynb](5-deploy-to-triton.ipynb)
