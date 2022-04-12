@@ -30,8 +30,9 @@ nvidia-smi
 
 ## Set CUDA Home
 
+You can add CUDA to your home path by altering your bash file. First open the file with `vim ~/.bashrc`,add the lines below, close the file, and then source it with `source ~/.bashrc`.
+
 ```
-vim ~/.bashrc
 export CUDA_HOME=/usr/local/cuda
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda/lib64:/usr/local/cuda/extras/CUPTI/lib64
 export PATH=$PATH:$CUDA_HOME/bin

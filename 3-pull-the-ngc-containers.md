@@ -35,15 +35,12 @@ sudo docker run --gpus=all -d -p 8000:8000 -p 8001:8001 -p 8002:8002 --network=t
     --name tritonserver nvcr.io/nvidia/tritonserver:22.03-py3 tritonserver --model-repository=/models
 ```
 
-## Start Jupyter Lab
+## Check the Triton logs
 
-Jupyter Lab is preinstalled on the PyTorch container. You can run it in headless mode on port 8888. Note that the code below removes the token. If you want to use a security token when you log into the server, you can remove the comment `NotebeookApp.token=''`. Once Jupyter Lab is running, you can access it at `http://<server-ip>:8888/lab?`.
+Use this command to check for saved models in the model repository. Note: When you first set up Triton, there will be no saved models in the model repository.
 
 ```
-sudo docker exec -it pytorch /bin/bash
-nohup jupyter-lab --NotebookApp.token='' --no-browser --port=8888 &
-exit
-
+sudo docker logs tritonserver
 ```
 
 ## Identify Triton IP
@@ -54,10 +51,20 @@ Make a note of the IP of the Triton server for the later on.
 sudo docker network inspect tritonnet
 ```
 
-## Check the Triton logs
+## Start Jupyter Lab
 
-Use this command to check for saved models in the model repository. Note: When you first set up Triton, there will be no saved models in the model repository.
+Jupyter Lab is preinstalled on the PyTorch container. You can run it in headless mode on port 8888. Note that the code below removes the token. If you want to use a security token when you log into the server, you can remove the comment `NotebeookApp.token=''`.
 
 ```
-sudo docker logs tritonserver
+sudo docker exec -it pytorch /bin/bash
+nohup jupyter-lab --NotebookApp.token='' --no-browser --port=8888 &
+exit
+
 ```
+
+## Open Jupyter Lab
+
+Access Jupyter Lab at `http://<server-ip>:8888/lab?`. Using a terminal in Jupyter Lab, clone this repository: `git clone https://github.com/nwstephens/triton-xgboost.git`. Then open the scripts for XGBoost and Triton.
+
+* 4-build-an-xgboost-model.ipynb
+* 5-deploy-to-triton.ipynb
