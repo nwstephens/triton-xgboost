@@ -1,6 +1,6 @@
 # Deploing XGBoost Models to Triton Inference Server
 
-![](logos.png)
+![](resources/logos.png)
 
 ### Overview
 
