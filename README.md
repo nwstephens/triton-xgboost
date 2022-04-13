@@ -2,15 +2,28 @@
 
 ![](logos.png)
 
-This demo is adapted from the blog post [Real-time Serving for XGBoost, Scikit-Learn RandomForest, LightGBM, and More](https://developer.nvidia.com/blog/real-time-serving-for-xgboost-scikit-learn-randomforest-lightgbm-and-more/) and describes how to build and deploy predictive models using [XGBoost](https://www.nvidia.com/en-us/glossary/data-science/xgboost/) and the [Triton Inference Server](https://developer.nvidia.com/nvidia-triton-inference-server) on GPU acclerated servers. 
+This demo is adapted from the blog post [Real-time Serving for XGBoost, Scikit-Learn RandomForest, LightGBM, and More](https://developer.nvidia.com/blog/real-time-serving-for-xgboost-scikit-learn-randomforest-lightgbm-and-more/) and describes how to build and deploy predictive models using [XGBoost](https://www.nvidia.com/en-us/glossary/data-science/xgboost/) and the [Triton Inference Server](https://developer.nvidia.com/nvidia-triton-inference-server) on GPU accelerated servers. 
 
 ## Set up PyTorch and Triton Containers
 
-This step will download and run two docker containers from NGC. We will use the PyTorch container to build a predictive model using XGBoost and teh Triton container for model deployment. The two containers are networked so that requests from the PyTorch container can be submitted to the Triton server.
+This step will download and run two docker containers from NGC. We will use the PyTorch container to build a predictive model using XGBoost and the Triton container for model deployment. The two containers are networked so that requests from the PyTorch container can be submitted to the Triton server.
 
-* Make sure you have properly set up your server. See [docs](docs/README.md) for details.
-* You should have plenty of disk space (at least 64 GB).
-* Open parts 8888, and 8000-8002.
+These notebooks were tested on the following configuration:
+
+* NVIDIA Tesla V100 (running on Azure)
+* Ubuntu 20.04 running on Linux x86
+* 64 GB of disk space
+* Open ports: 22; 8888; 8000-8002
+* CUDA Toolkit 11.6
+* NVIDIA Container Toolkit 1.9.0
+* NGC PyTorch 22.03
+* NGC Triton Server 22.03
+
+## Requirements
+
+* Make sure you have properly set up your server. See the [docs](docs/README.md) for details.
+* You should have plenty of disk space.
+* Open ports: 8888; 8000-8002.
 
 ## Docker network
 
@@ -23,7 +36,7 @@ sudo docker volume create volume1
 
 ## PyTorch container
 
-The PyTorch container (v22.03) on NGC has many prebuilt libraries that makes doing data science easy. Mount the shared volume so you can save models to the model repository.
+The PyTorch container (v22.03) on NGC has many pre-built libraries that makes doing data science easy. Mount the shared volume so you can save models to the model repository.
 
 ```
 sudo docker pull nvcr.io/nvidia/pytorch:22.03-py3
@@ -43,7 +56,7 @@ exit
 
 ## Triton container
 
-Pull the Triton container (v22.03) from NGC and run it as a service.
+The Triton container (v22.03) on NGC will serve models in the model repository.
 
 ```
 sudo docker pull nvcr.io/nvidia/tritonserver:22.03-py3
@@ -58,7 +71,7 @@ Verify Triton is running correctly. The HTTP request returns status 200 if Trito
 curl -v localhost:8000/v2/health/ready
 ```
 
-Check the Triton Logs. You should see the pre-saved model listed in the model repository. If your model is not displayed in the table check the path to the model repository and your CUDA drivers.
+Check the Triton logs. You should see the pre-built model listed in the model repository. If your model is not displayed in the table check the path to the model repository and your CUDA drivers.
 
 ```
 sudo docker logs tritonserver
@@ -81,4 +94,4 @@ exit
 
 ```
 
-Access Jupyter Lab at `http://<server-ip>:8888/lab?`. Open the [XGBoost](xgboost-model.ipynb) notebook and follow the instructions for building and deploying a model to Triton. Then open the [Triton](triton-deploy.ipynb) notebook and follow the instructions for submitting requests to Triton.
+Access Jupyter Lab at `http://<server-ip>:8888`. Make sure port 8888 is open. Open the [XGBoost](xgboost-model.ipynb) notebook and follow the instructions for building and deploying a model to Triton. Then open the [Triton](triton-deploy.ipynb) notebook and follow the instructions for submitting requests to Triton.
