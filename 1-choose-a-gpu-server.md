@@ -24,9 +24,11 @@ GPU's are avaiable in the cloud, in the data center, and for personal computing.
 
 ## Compute capability
 
-The software you run on an NVIDIA GPU requires a certain compute capability. The compute capability can be found [here](https://developer.nvidia.com/cuda-gpus). NVIDIA chip architectures (e.g. Volta, Turing, Ampere, Hopper) have features that are associated to a specific [compute capability](). The software you are running should match the compute capability of the GPU. For example, RAPIDS requires a compute capability greater than 6, which means you should run RAPIDS on a P100, V100, T4, or an Ampere in the data center.
+The software you run on an NVIDIA GPU requires a certain compute capability. The compute capability can be found [here](https://developer.nvidia.com/cuda-gpus). NVIDIA chip architectures (e.g. Volta, Turing, Ampere, Hopper) have features that are associated to a specific [compute capability](https://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html#compute-capabilities). The software you are running should match the compute capability of the GPU. For example, RAPIDS requires a compute capability greater than 6, which means you should run RAPIDS on a P100, V100, T4, or an Ampere in the data center.
 
-### NVIDIA Data Center Products
+Here is the compute capability for few GPU categories. For a complete list, see [Your GPU Compute Capability](https://developer.nvidia.com/cuda-gpus).
+
+### [NVIDIA Data Center Products](https://www.nvidia.com/en-us/data-center/products/)
 
 GPU	| Compute Capability
 ----|-------------------
@@ -39,39 +41,6 @@ NVIDIA A2	| 8.6
 NVIDIA T4	| 7.5
 NVIDIA V100	| 7.0
 Tesla P100	| 6.0
-
-### NVIDIA Quadro and NVIDIA RTX Desktop GPUs
-
-GPU | Compute Capability
-----|-------------------
-RTX A6000	| 8.6
-RTX A5000	| 8.6
-RTX A4000	| 8.6
-T1000	| 7.5
-T600	| 7.5
-T400	| 7.5
-Quadro RTX 8000	| 7.5
-Quadro RTX 6000	| 7.5
-Quadro RTX 5000	| 7.5
-Quadro RTX 4000	| 7.5
-Quadro GV100	| 7.0
-Quadro GP100	| 6.0
-
-### GeForce Notebook Products
-
-GPU | Compute Capability
-----|-------------------
-GeForce RTX 3080	| 8.6
-GeForce RTX 3070	| 8.6
-GeForce RTX 3060	| 8.6
-GeForce RTX 3050 Ti	| 8.6
-GeForce RTX 3050	| 8.6
-Geforce RTX 2080	| 7.5
-Geforce RTX 2070	| 7.5
-Geforce RTX 2060	| 7.5
-GeForce GTX 1080	| 6.1
-GeForce GTX 1070	| 6.1
-GeForce GTX 1060	| 6.1
 
 ### Compute capability prerequisites software
 
