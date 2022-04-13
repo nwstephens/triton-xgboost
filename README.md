@@ -21,6 +21,26 @@ sudo docker network create tritonnet
 sudo docker volume create volume1
 ```
 
+## PyTorch container
+
+The PyTorch container (v22.03) on NGC has many prebuilt libraries that makes doing data science easy. Mount the shared volume so you can save models to the model repository.
+
+```
+sudo docker pull nvcr.io/nvidia/pytorch:22.03-py3
+sudo docker run --gpus=all -t -d -p 8888:8888 --ipc=host --ulimit memlock=-1 --ulimit stack=67108864 --network=tritonnet \
+    --mount source=volume1,destination=/workspace/volume1 --name pytorch nvcr.io/nvidia/pytorch:22.03-py3
+```
+
+Clone this repository onto the server so you will have easy access to the Jupyter Notebooks. Copy the pre-built model into the model repository.
+
+```
+sudo docker exec -it pytorch /bin/bash
+git clone https://github.com/nwstephens/triton-xgboost.git
+cp -R triton-xgboost/data/pre-built/ volume1/model_repository/.
+exit
+
+```
+
 ## Triton container
 
 Pull the Triton container (v22.03) from NGC and run it as a service.
@@ -30,19 +50,6 @@ sudo docker pull nvcr.io/nvidia/tritonserver:22.03-py3
 sudo docker run --gpus=all -d -p 8000:8000 -p 8001:8001 -p 8002:8002 --network=tritonnet \
     -v /var/lib/docker/volumes/volume1/_data/model_repository:/models \
     --name tritonserver nvcr.io/nvidia/tritonserver:22.03-py3 tritonserver --model-repository=/models
-```
-
-Copy the pre-built model into the model repository.
-
-```
-cp <saved_model>
-cp <config>
-```
-
-Make a note of the IP of the Triton server. You will need to add the IP to the Triton client later configuration later on. 
-
-```
-sudo docker network inspect tritonnet
 ```
 
 Verify Triton is running correctly. The HTTP request returns status 200 if Triton is ready and non-200 if it is not ready. 
@@ -57,23 +64,10 @@ Check the Triton Logs. You should see the pre-saved model listed in the model re
 sudo docker logs tritonserver
 ```
 
-## PyTorch container
-
-The PyTorch container (v22.03) on NGC has many prebuilt libraries that makes doing data science easy. Mount the shared volume so you can save models to the model repository.
+Make a note of the IP of the Triton server. You will need to add the IP to the Triton client later configuration later on. 
 
 ```
-sudo docker pull nvcr.io/nvidia/pytorch:22.03-py3
-sudo docker run --gpus=all -t -d -p 8888:8888 --ipc=host --ulimit memlock=-1 --ulimit stack=67108864 --network=tritonnet \
-    --mount source=volume1,destination=/workspace/volume1 --name pytorch nvcr.io/nvidia/pytorch:22.03-py3
-```
-
-Clone this repository onto the server so you will have easy access to the Jupyter Notebooks.
-
-```
-sudo docker exec -it pytorch /bin/bash
-git clone https://github.com/nwstephens/triton-xgboost.git
-exit
-
+sudo docker network inspect tritonnet
 ```
 
 ## Open Jupyter Lab
