@@ -10,7 +10,7 @@ All of the software and hardware on your system needs to be compatible. Please n
 2. The [NGC container](https://catalog.ngc.nvidia.com/) you run should be compatible with the CUDA toolkit you run.
 3. The [CUDA toolkit](https://developer.nvidia.com/cuda-downloads) you run should be compatible with the operating system you run.
 
-If you haven't already, procure a GPU with the required compute capability as described in [Where to find NVIDIA GPU's for data data science](1-choose-a-gpu-server.md).
+For example, the [PyTorch 22.03 container](https://docs.nvidia.com/deeplearning/frameworks/pytorch-release-notes/rel_22-03.html#rel_22-03) on NGC supports Ubuntu 20.04, CUDA Toolkit 11.6.1, and compute capability 6.0+. GPU's that support compute capability 6.0+ include, but are not limited to: P100, V100, T4, and Ampere. If you haven't already, procure a GPU with the required compute capability as described in [Where to find NVIDIA GPU's for data data science](1-choose-a-gpu-server.md).
 
 ## Install the CUDA toolkit
 
