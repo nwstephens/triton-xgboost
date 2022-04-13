@@ -51,7 +51,7 @@ Make a note of the IP of the Triton server for the later on.
 sudo docker network inspect tritonnet
 ```
 
-## Start Jupyter Lab and clone this repository
+## Open Jupyter Lab
 
 Jupyter Lab is preinstalled on the PyTorch container. You can run it in headless mode on port 8888. Note that the code below removes the token. If you want to use a security token when you log into the server, you can remove the comment `NotebeookApp.token=''`.
 
@@ -62,14 +62,14 @@ exit
 
 ```
 
+Clone this repository
+
 ```
 sudo docker exec -it pytorch /bin/bash
 git clone https://github.com/nwstephens/triton-xgboost.git
 exit
 
 ```
-
-## Open Jupyter Lab
 
 Access Jupyter Lab at `http://<server-ip>:8888/lab?`. Open the scripts for XGBoost and Triton.
 
