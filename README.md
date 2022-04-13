@@ -1,6 +1,6 @@
-![](logos.png)
-
 # Deploing XGBoost to Triton Inference Server
+
+![](logos.png)
 
 ### Overview
 
@@ -12,6 +12,7 @@ These files describe how to build and predictive model using XGBoost and deploy 
 4. Build an XGBoost model
 5. Deploy to Triton
 
+For help with common issues see [Troubleshooting](resources/troubleshooting.md).
 
 ### About
 
