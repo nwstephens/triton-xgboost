@@ -94,4 +94,4 @@ exit
 
 ```
 
-Access Jupyter Lab at `http://<server-ip>:8888`. Make sure port 8888 is open. Open the [XGBoost](xgboost-model.ipynb) notebook and follow the instructions for building and deploying a model to Triton. Then open the [Triton](triton-deploy.ipynb) notebook and follow the instructions for submitting requests to Triton.
+Access Jupyter Lab at `http://<server-ip>:8888`. Make sure port 8888 is open. Open the [XGBoost](1-xgboost-model.ipynb) notebook and follow the instructions for building and deploying a model to Triton. Then open the [Triton](2-triton-deploy.ipynb) notebook and follow the instructions for submitting requests to Triton.
