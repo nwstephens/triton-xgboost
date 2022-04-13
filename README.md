@@ -4,7 +4,7 @@
 
 ### Overview
 
-These files describe how to build and predictive model using XGBoost and deploy it to Triton Inference server. If you already have a the CUDA Toolkit and the Container Toolkit installed on NVIDIA GPU Server, you can skip the first two steps.  
+These files describe how to build and predictive model using XGBoost and deploy it to Triton Inference server. The first two steps describe how to install the CUDA Toolkit and the Container Toolkit on an NVIDIA GPU server. The last three steps describe how to pull the containers, run the analysis and deploy the models.
 
 1. Choose a GPU server
 2. Configure the server
