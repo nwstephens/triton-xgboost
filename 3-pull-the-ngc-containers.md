@@ -20,7 +20,7 @@ sudo docker volume create volume1
 
 ## Pull and run docker containers
 
-Pull the contains are run them within the network. Mount a volume on the PyTorch container. This volume will be used to save models that will later be transfered to the Triton model repository.
+Pull the contains are run them within the network. Mount a volume on the PyTorch container. This volume will be used to save models that will later be transferred to the Triton model repository.
 
 ```
 # PyTorch

@@ -9,7 +9,7 @@ These files describe how to build and deploy predictive models using [XGBoost](h
 1. [Choose a GPU server](1-choose-a-gpu-server.md)
 2. [Configure the server](2-configure-the-server.md)
 3. [Pull the NGC containers](3-pull-the-ngc-containers.md)
-4. [Build an XGBoost model](4-build-an-xgbost-model.ipynb)
+4. [Build an XGBoost model](4-build-an-xgboost-model.ipynb)
 5. [Deploy to Triton](5-deploy-to-triton.ipynb)
 
 ### About
