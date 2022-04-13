@@ -51,7 +51,7 @@ Make a note of the IP of the Triton server for the later on.
 sudo docker network inspect tritonnet
 ```
 
-## Start Jupyter Lab
+## Start Jupyter Lab and clone this repository
 
 Jupyter Lab is preinstalled on the PyTorch container. You can run it in headless mode on port 8888. Note that the code below removes the token. If you want to use a security token when you log into the server, you can remove the comment `NotebeookApp.token=''`.
 
@@ -61,8 +61,6 @@ nohup jupyter-lab --NotebookApp.token='' --no-browser --port=8888 &
 exit
 
 ```
-
-## Clone this repository
 
 ```
 sudo docker exec -it pytorch /bin/bash
