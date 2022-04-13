@@ -6,13 +6,13 @@ These instructions explain how to configure a server in preparation for doing da
 
 All of the software and hardware on your system needs to be compatible. Please note that the following components should be compatible with each other:
 
-1. The GPU [compute capability](https://developer.nvidia.com/cuda-gpus) should be compatible with the [NGC container](https://catalog.ngc.nvidia.com/) your run
-2. The [NGC container](https://catalog.ngc.nvidia.com/) you run should be compatible with the [(CUDA toolkit](https://developer.nvidia.com/cuda-downloads) you run
-3. The [CUDA toolkit](https://developer.nvidia.com/cuda-downloads) you run should be compatible with your operating system
+1. The GPU [compute capability](https://developer.nvidia.com/cuda-gpus) should be compatible with the NGC container you run.
+2. The [NGC container](https://catalog.ngc.nvidia.com/) you run should be compatible with the CUDA toolkit you run.
+3. The [CUDA toolkit](https://developer.nvidia.com/cuda-downloads) you run should be compatible with the operating system you run.
 
-If you haven't already, procure a GPU with the required compute capability as described in [Where to find NVIDIA GPU's for data data science]().
+If you haven't already, procure a GPU with the required compute capability as described in [Where to find NVIDIA GPU's for data data science](1-choose-a-gpu-server.md).
 
-## Install CUDA toolkit
+## Install the CUDA toolkit
 
 ```
 wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/cuda-ubuntu2004.pin
@@ -42,7 +42,7 @@ export PATH=$PATH:$CUDA_HOME/bin
 nvcc --version
 ```
 
-## Install docker toolkit
+## Install the container toolkit
 
 ```
 curl https://get.docker.com | sh \

@@ -4,7 +4,7 @@ This step will download and run two docker containers from NGC. We will use the 
 
 ### Set up notes
 
-* Make sure you have properly set up your server as described in [Configuring the server]().
+* Make sure you have properly set up your server as described in [Configuring the server](2-configure-the-server.md).
 * You should have plenty of disk space (at least 64 GB)
 * Open parts 8000, 8001, 8002 for Triton
 * Open port 8888 for Jupyter Lab
@@ -62,9 +62,18 @@ exit
 
 ```
 
+## Clone this repository
+
+```
+sudo docker exec -it pytorch /bin/bash
+git clone https://github.com/nwstephens/triton-xgboost.git
+exit
+
+```
+
 ## Open Jupyter Lab
 
-Access Jupyter Lab at `http://<server-ip>:8888/lab?`. Using a terminal in Jupyter Lab, clone this repository: `git clone https://github.com/nwstephens/triton-xgboost.git`. Then open the scripts for XGBoost and Triton.
+Access Jupyter Lab at `http://<server-ip>:8888/lab?`. Open the scripts for XGBoost and Triton.
 
 * [4-build-an-xgboost-model.ipynb](4-build-an-xgboost-model.ipynb)
 * [5-deploy-to-triton.ipynb](5-deploy-to-triton.ipynb)
