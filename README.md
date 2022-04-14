@@ -99,7 +99,7 @@ Jupyter Lab is pre-installed on the PyTorch container. Note that the code below 
 ```
 sudo docker exec -it pytorch /bin/bash
 nohup jupyter-lab --NotebookApp.token='' --no-browser --port=8888 &
-curl -s api.ipify.org | awk '{print $1":8888"}'
+curl -s ifconfig.me | awk '{print $1":8888"}'
 exit
 
 ```
