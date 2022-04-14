@@ -1,15 +1,11 @@
-# Data
+# Contents
 
-For this example, we will make use of data from the [IEEE-CIS Fraud Detection](https://www.kaggle.com/c/ieee-fraud-detection/overview) Kaggle competition.
+* `train_transaction.tgz`: Compressed training data from the [IEEE-CIS Fraud Detection](https://www.kaggle.com/c/ieee-fraud-detection/overview) Kaggle competition.
+* `pre-built`: A saved model and model configuration.
+* `X_test.pkl`: Small test data in Pandas format.
+* `np_data.npy`: Small test data in Numpy format.
 
-### Contents
-
-* `train_transaction.tgz`: Compressed training data
-* `pre-built`: A saved model and model configuration
-* `X_test.pkl`: Small test data in Pandas format
-* `np_data.npy`: Small test data in Numpy format
-
-### Tritonclient Python API Example
+### Using the Tritonclient Python API
 
 The Python API make it easy to communicate with Triton from your C++ or Python application. Using these libraries you can send either HTTP/REST or GRPC requests to Triton to access all its capabilities: inferencing, status and health, statistics and metrics, model repository management, etc. These libraries also support using system and CUDA shared memory for passing inputs to and receiving outputs from Triton. For more information, see the [Tritonclient docs](https://github.com/triton-inference-server/client).
 
