@@ -83,6 +83,15 @@ Make a note of the IP of the Triton server. You will need to add the IP to the T
 sudo docker network inspect tritonnet
 ```
 
+## Starting containers after a server restart
+
+If you shut down your server instance to save costs, you can start containers when you bring your server instance back online.
+
+```
+sudo docker start pytorch
+sudo docker start tritonserver
+```
+
 ## Open Jupyter Lab
 
 Jupyter Lab is pre-installed on the PyTorch container. Note that the code below removes the security token. If you want to use a security token when you log into the server, you can remove the comment `--NotebeookApp.token=''`.
@@ -90,6 +99,7 @@ Jupyter Lab is pre-installed on the PyTorch container. Note that the code below 
 ```
 sudo docker exec -it pytorch /bin/bash
 nohup jupyter-lab --NotebookApp.token='' --no-browser --port=8888 &
+curl -s api.ipify.org | awk '{print $1":8888"}'
 exit
 
 ```
