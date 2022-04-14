@@ -36,7 +36,7 @@ sudo docker volume create volume1
 
 ## PyTorch container
 
-The PyTorch container (v22.03) on NGC has many pre-built libraries that makes doing data science easy. Mount the shared volume so you can save models to the model repository.
+The [PyTorch container](https://catalog.ngc.nvidia.com/orgs/nvidia/containers/pytorch) (v22.03) on NGC has many pre-built libraries that makes doing data science easy. Mount the shared volume so you can save models to the model repository.
 
 ```
 sudo docker pull nvcr.io/nvidia/pytorch:22.03-py3
@@ -56,7 +56,7 @@ exit
 
 ## Triton container
 
-The Triton container (v22.03) on NGC will serve models in the model repository.
+The [Triton container](https://catalog.ngc.nvidia.com/orgs/nvidia/containers/tritonserver) (v22.03) on NGC will serve models in the model repository.
 
 ```
 sudo docker pull nvcr.io/nvidia/tritonserver:22.03-py3
