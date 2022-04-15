@@ -25,7 +25,7 @@ These notebooks were tested on the following configuration:
 * You should have plenty of disk space.
 * Open ports: 8888; 8000-8002.
 
-## Docker network
+## Model repository
 
 Create a shared volume that will be used by the [model repository](https://github.com/triton-inference-server/server/blob/main/docs/model_repository.md).
 
