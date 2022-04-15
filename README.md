@@ -27,10 +27,9 @@ These notebooks were tested on the following configuration:
 
 ## Docker network
 
-Create a docker network for the containers to communicate with each other, and a shared volume that will be used by the [model repository](https://github.com/triton-inference-server/server/blob/main/docs/model_repository.md).
+Create a shared volume that will be used by the [model repository](https://github.com/triton-inference-server/server/blob/main/docs/model_repository.md).
 
 ```
-sudo docker network create tritonnet
 sudo docker volume create volume1
 ```
 
@@ -40,8 +39,9 @@ The [PyTorch container](https://catalog.ngc.nvidia.com/orgs/nvidia/containers/py
 
 ```
 sudo docker pull nvcr.io/nvidia/pytorch:22.03-py3
-sudo docker run --gpus=all -t -d -p 8888:8888 --ipc=host --ulimit memlock=-1 --ulimit stack=67108864 --network=tritonnet \
-    --mount source=volume1,destination=/workspace/volume1 --name pytorch nvcr.io/nvidia/pytorch:22.03-py3
+sudo docker run --gpus=all -t -d --ipc=host --ulimit memlock=-1 --ulimit stack=67108864 \
+    --network host --mount source=volume1,destination=/workspace/volume1 \
+    --name pytorch nvcr.io/nvidia/pytorch:22.03-py3
 ```
 
 Clone this repository onto the server so you will have easy access to the Jupyter Notebooks. Copy the pre-built model into the model repository.
@@ -60,7 +60,7 @@ The [Triton container](https://catalog.ngc.nvidia.com/orgs/nvidia/containers/tri
 
 ```
 sudo docker pull nvcr.io/nvidia/tritonserver:22.03-py3
-sudo docker run --gpus=all -d -p 8000:8000 -p 8001:8001 -p 8002:8002 --network=tritonnet \
+sudo docker run --gpus=all -d --network host \
     -v /var/lib/docker/volumes/volume1/_data/model_repository:/models \
     --name tritonserver nvcr.io/nvidia/tritonserver:22.03-py3 tritonserver --model-repository=/models
 ```
