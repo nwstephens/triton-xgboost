@@ -10,7 +10,7 @@ This step will download and run two docker containers from NGC. We will use the 
 
 These notebooks were tested on the following configuration:
 
-* NVIDIA Tesla V100 (running on Azure)
+* NVIDIA Tesla V100
 * Ubuntu 20.04 running on Linux x86
 * 64 GB of disk space
 * Open ports: 22; 8888; 8000-8002
