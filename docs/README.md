@@ -15,4 +15,4 @@ This setup depends on the following [NVIDIA](https://www.nvidia.com/en-us/) hard
 
 ### Troubleshooting
 
-For help with common issues see [Troubleshooting](resources/troubleshooting.md).
+For help with common issues see [Troubleshooting](troubleshooting.md).
