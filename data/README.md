@@ -13,7 +13,9 @@ The Python API make it easy to communicate with Triton from your C++ or Python a
 import tritonclient.grpc as triton_grpc
 from tritonclient import utils as triton_utils
 
-client = triton_grpc.InferenceServerClient(url='172.18.0.3:8001')
+HOST = get('https://api.ipify.org').text
+PORT = 8001
+client = triton_grpc.InferenceServerClient(url=f'{HOST}:{PORT}')
 
 import numpy as np
 np_data = np.load('data/np_data.npy')
