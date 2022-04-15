@@ -77,12 +77,6 @@ Check the Triton logs. You should see the pre-built model listed in the model re
 sudo docker logs tritonserver
 ```
 
-Make a note of the IP of the Triton server. You will need to add the IP to the Triton client later configuration later on. 
-
-```
-sudo docker network inspect tritonnet
-```
-
 ## Starting containers after a server restart
 
 If you shut down your server instance to save costs, you can start containers when you bring your server instance back online.
