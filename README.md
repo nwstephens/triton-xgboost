@@ -2,28 +2,17 @@
 
 ![](logos.png)
 
-This demo is adapted from the blog post [Real-time Serving for XGBoost, Scikit-Learn RandomForest, LightGBM, and More](https://developer.nvidia.com/blog/real-time-serving-for-xgboost-scikit-learn-randomforest-lightgbm-and-more/) and describes how to build and deploy predictive models using [XGBoost](https://www.nvidia.com/en-us/glossary/data-science/xgboost/) and the [Triton Inference Server](https://developer.nvidia.com/nvidia-triton-inference-server) on GPU accelerated servers. 
-
-## Set up PyTorch and Triton Containers
-
-This step will download and run two docker containers from NGC. We will use the PyTorch container to build a predictive model using XGBoost and the Triton container for model deployment. The two containers are networked so that requests from the PyTorch container can be submitted to the Triton server.
-
-These notebooks were tested on the following configuration:
-
-* NVIDIA Tesla V100
-* Ubuntu 20.04 running on Linux x86
-* 64 GB of disk space
-* Open ports: 22; 8888; 8000-8002
-* CUDA Toolkit 11.6
-* NVIDIA Container Toolkit 1.9.0
-* NGC PyTorch 22.03
-* NGC Triton Server 22.03
+This demo is adapted from the blog post [Real-time Serving for XGBoost, Scikit-Learn RandomForest, LightGBM, and More](https://developer.nvidia.com/blog/real-time-serving-for-xgboost-scikit-learn-randomforest-lightgbm-and-more/) and describes how to build and deploy predictive models using [XGBoost](https://www.nvidia.com/en-us/glossary/data-science/xgboost/) and the [Triton Inference Server](https://developer.nvidia.com/nvidia-triton-inference-server) on GPU accelerated servers.
 
 ## Requirements
 
-* Make sure you have properly set up your server. See the [docs](docs/README.md) for details.
-* You should have plenty of disk space.
-* Open ports: 8888; 8000-8002.
+* Make sure you have properly set up your server. See the [docs](docs/README.md) for details. These notebooks were tested on the following configuration:
+  * NVIDIA Tesla V100
+  * Ubuntu 20.04 running on Linux x86
+  * CUDA Toolkit 11.6
+  * NVIDIA Container Toolkit 1.9.0
+* Minimum recommended disk space: 64 GB
+* Open ports: 8888, 8000, 8001, and 8002.
 
 ## Model repository
 
@@ -86,7 +75,7 @@ sudo docker start pytorch
 sudo docker start tritonserver
 ```
 
-## Open Jupyter Lab
+## Open Notebooks in Jupyter Lab
 
 Jupyter Lab is pre-installed on the PyTorch container. Note that the code below removes the security token. If you want to use a security token when you log into the server, you can remove the comment `--NotebeookApp.token=''`.
 
@@ -98,4 +87,4 @@ exit
 
 ```
 
-Access Jupyter Lab at `http://<server-ip>:8888`. Make sure port 8888 is open. Open the [XGBoost](1-xgboost-model.ipynb) notebook and follow the instructions for building and deploying a model to Triton. Then open the [Triton](2-triton-deploy.ipynb) notebook and follow the instructions for submitting requests to Triton. As an optional exercise, you may want to use the [Performance Analyzer](3-perf-analyzer.ipynb) on your model.
+Copy the server IP and port from the console output, and open Jupyter Lab in a browser at `http://<server-ip>:8888`. Make sure port 8888 is open. Open the [XGBoost](1-xgboost-model.ipynb) notebook and follow the instructions for building and deploying a model to Triton. Then open the [Triton](2-triton-deploy.ipynb) notebook and follow the instructions for submitting inference requests to Triton. As an optional exercise, you may want to use the [Performance Analyzer](3-perf-analyzer.ipynb) on your model.
