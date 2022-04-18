@@ -20,6 +20,7 @@ Create a shared volume that will be used by the [model repository](https://githu
 
 ```
 sudo docker volume create volume1
+sudo mkdir -p /var/lib/docker/volumes/volume1/_data/model_repository
 ```
 
 ## PyTorch container
@@ -82,9 +83,8 @@ Jupyter Lab is pre-installed on the PyTorch container. Note that the code below 
 ```
 sudo docker exec -it pytorch /bin/bash
 nohup jupyter-lab --NotebookApp.token='' --no-browser --port=8888 &
-curl -s ifconfig.me | awk '{print $1":8888"}'
 exit
 
 ```
 
-Copy the server IP and port from the console output, and open Jupyter Lab in a browser at `http://<server-ip>:8888`. Make sure port 8888 is open. Open the [XGBoost](1-xgboost-model.ipynb) notebook and follow the instructions for building and deploying a model to Triton. Then open the [Triton](2-triton-deploy.ipynb) notebook and follow the instructions for submitting inference requests to Triton. As an optional exercise, you may want to use the [Performance Analyzer](3-perf-analyzer.ipynb) on your model.
+Open Jupyter Lab in a browser at `http://<server-ip>:8888`. Make sure port 8888 is open. Open the [XGBoost](1-xgboost-model.ipynb) notebook and follow the instructions for building and deploying a model to Triton. Then open the [Triton](2-triton-deploy.ipynb) notebook and follow the instructions for submitting inference requests to Triton. As an optional exercise, you may want to use the [Performance Analyzer](3-perf-analyzer.ipynb) on your model.
