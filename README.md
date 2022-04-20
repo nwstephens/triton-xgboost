@@ -50,7 +50,7 @@ The [Triton container](https://catalog.ngc.nvidia.com/orgs/nvidia/containers/tri
 
 ```
 sudo docker pull nvcr.io/nvidia/tritonserver:22.03-py3
-sudo docker run --gpus=all -d --network host --model-control-mode="poll" \
+sudo docker run --gpus=all -d --network host \
     -v /var/lib/docker/volumes/volume1/_data/model_repository:/models \
     --name tritonserver nvcr.io/nvidia/tritonserver:22.03-py3 tritonserver --model-repository=/models
 ```
