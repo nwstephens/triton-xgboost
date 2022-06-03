@@ -34,7 +34,7 @@ sudo docker run --gpus=all -t -d --ipc=host --ulimit memlock=-1 --ulimit stack=6
     --name pytorch nvcr.io/nvidia/pytorch:22.03-py3
 ```
 
-Clone this repository onto the server so you will have easy access to the Jupyter Notebooks. Copy the pre-built model into the model repository.
+Clone this repository onto the server so you will have easy access to the Jupyter Notebooks. Copy the `pre-built` model into the model repository.
 
 ```
 sudo docker exec -it pytorch /bin/bash
