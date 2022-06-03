@@ -7,11 +7,11 @@ This demo is adapted from the blog post [Real-time Serving for XGBoost, Scikit-L
 ## Requirements
 
 * Make sure you have properly set up your server. See the [docs](docs/README.md) for details. These notebooks were tested on the following configuration:
-  * NVIDIA Tesla V100
+  * NVIDIA RTX A6000 x 2
   * Ubuntu 20.04 running on Linux x86
   * CUDA Toolkit 11.6
   * NVIDIA Container Toolkit 1.9.0
-* Minimum recommended disk space: 64 GB
+* Recommended recommended disk space: 64 GB
 * Open ports: 8888, 8000, 8001, and 8002.
 
 ## Model repository
