@@ -12,7 +12,7 @@ All of the software and hardware on your system needs to be compatible. Please n
 
 For example, the [PyTorch 22.03 container](https://docs.nvidia.com/deeplearning/frameworks/pytorch-release-notes/rel_22-03.html#rel_22-03) on NGC supports Ubuntu 20.04, CUDA Toolkit 11.6.1, and compute capability 6.0+. GPU's that support compute capability 6.0+ include, but are not limited to: P100, V100, T4, and Ampere. If you haven't already, procure a GPU with the required compute capability as described in [Where to find NVIDIA GPU's for data data science](choose-a-gpu-server.md).
 
-## Install the CUDA toolkit
+## Install the CUDA Toolkit
 
 ```
 wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/cuda-ubuntu2004.pin
@@ -23,6 +23,8 @@ sudo apt-key add /var/cuda-repo-ubuntu2004-11-6-local/7fa2af80.pub
 sudo apt-get update
 sudo apt-get -y install cuda
 ```
+
+Note: The logs indicate that you may have to restart the server after installing the CUDA Toolkit
 
 ```
 nvidia-smi
