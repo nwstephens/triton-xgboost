@@ -88,3 +88,4 @@ exit
 ```
 
 Open Jupyter Lab in a browser at `http://<server-ip>:8888`. Make sure port 8888 is open. Open the [XGBoost](1-xgboost-model.ipynb) notebook and follow the instructions for building and deploying a model to Triton. Then open the [Triton](2-triton-deploy.ipynb) notebook and follow the instructions for submitting inference requests to Triton. As an optional exercise, you may want to use the [Performance Analyzer](3-perf-analyzer.ipynb) on your model.
+
