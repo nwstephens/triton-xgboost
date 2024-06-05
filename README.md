@@ -29,7 +29,7 @@ The [PyTorch container](https://catalog.ngc.nvidia.com/orgs/nvidia/containers/py
 
 ```
 sudo docker pull nvcr.io/nvidia/pytorch:22.03-py3
-sudo docker run --gpus=all -t -d --ipc=host --ulimit memlock=-1 --ulimit stack=67108864 \
+sudo docker run --gpus=all -t -dt --ipc=host --ulimit memlock=-1 --ulimit stack=67108864 \
     --network host --mount source=volume1,destination=/workspace/volume1 \
     --name pytorch nvcr.io/nvidia/pytorch:22.03-py3
 ```
@@ -50,7 +50,7 @@ The [Triton container](https://catalog.ngc.nvidia.com/orgs/nvidia/containers/tri
 
 ```
 sudo docker pull nvcr.io/nvidia/tritonserver:22.03-py3
-sudo docker run --gpus=all -d --network host \
+sudo docker run --gpus=all -dt --network host \
     -v /var/lib/docker/volumes/volume1/_data/model_repository:/models \
     --name tritonserver nvcr.io/nvidia/tritonserver:22.03-py3 tritonserver --model-repository=/models
 ```
